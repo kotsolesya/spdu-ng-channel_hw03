@@ -1,0 +1,67 @@
+import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
+
+import { UsersService } from './rest/users.service';
+import { UserDto } from './rest/user.dto';
+
+@Component({
+	selector: 'app-root',
+	templateUrl: './app.html'
+})
+
+export class AppComponent implements OnInit {
+	authorized = false;
+	user: UserDto;
+
+	constructor(private usersService: UsersService) { }
+
+	runStream() {
+		this.stream().subscribe(b => console.log(b));
+	}
+
+	stream() {
+		const subj = new Subject();
+		setInterval(()=> {
+			subj.next(Date.now()); // кидаем по потоку каждую сек дату
+		}, 1000);
+		return subj;
+	}
+
+	signOut() {
+		localStorage.removeItem('user');
+		this.usersService.destroy();
+		this.updateAuthorized();
+	}
+
+	ngOnInit() {
+		this.user = this.getUserFromStorage();
+		this.updateAuthorized();
+	}
+
+	setUser(user: UserDto) {
+		this.user = user;
+		this.setUserFromStorage(user);
+		this.updateAuthorized();
+	}
+
+	private updateAuthorized() {
+		this.authorized = !!this.user;
+		if (this.authorized) {
+			this.usersService.init();
+		} else {
+			this.usersService.destroy();
+		}
+	}
+
+	private getUserFromStorage(): UserDto {
+		const data = window.localStorage.getItem('user');
+		if (!data) {
+			return;
+		}
+		return new UserDto(JSON.parse(data));
+	}
+
+	private setUserFromStorage(user: UserDto) {
+		window.localStorage.setItem('user', JSON.stringify(user));
+	}
+}
