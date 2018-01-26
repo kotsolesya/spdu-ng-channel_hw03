@@ -40,6 +40,6 @@ export class ChannelDetailsComponent  {
 	}
 
 	goTo() {
-		this.router.navigate(['/channels']);
+		this.router.navigate(['/']);
 	}
 }

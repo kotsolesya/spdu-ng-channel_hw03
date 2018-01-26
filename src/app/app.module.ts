@@ -22,7 +22,7 @@ import { MessagesModule } from './components/messages/messages.module';
 import { MessageSendModule } from './components/message-send/message-send.module';
 import { MessagesService } from './rest/messages.service';
 
-import { Router } from '@angular/router/src/router';
+//import { Router } from '@angular/router/src/router';
 
 const appRoutes: Routes = [
 	{

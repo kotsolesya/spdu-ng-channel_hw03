@@ -3,7 +3,7 @@ import { ChannelDetailsComponent } from './channel-details.component';
 
 export const channelDetailsRoutes: Routes = [
     {
-        path: 'channel/:channelId',
+        path: ':channelId',
         component: ChannelDetailsComponent
     }
 ];

@@ -1,12 +1,11 @@
 import { Subject } from 'rxjs/Subject';
-import { Injectable } from '@angular/core';
+
 import { Rest } from './rest';
 import { MessageDto } from './message.dto';
 
-@Injectable()
 export class MessagesService {
 	private messages = new Subject<MessageDto[]>();
-	private running = true;
+	private running = false;
 
 	init() {
 		if (!this.running) {
@@ -29,10 +28,28 @@ export class MessagesService {
 	}
 
 	get() {
+		if (this.running) {
+			return this.messages;
+		}
+		this.performIntervalSync();
 		return this.messages;
 	}
 
 	add(message: MessageDto) {
 		return Rest.addMessage(message);
+	}
+
+	private performIntervalSync() {
+		this.running = true;
+		Rest.getMessages()
+			.subscribe(messages => {
+				this.messages.next(messages);
+				setTimeout(
+					() => {
+						this.performIntervalSync();
+					},
+					1000
+				);
+			});
 	}
 }
