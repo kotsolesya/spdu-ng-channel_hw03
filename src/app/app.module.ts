@@ -11,11 +11,11 @@ import { MessagesService } from './rest/messages.service';
 
 
 import { ChannelModule } from './containers/channel/channel.module';
-import { TeamModule } from './containers/team/team.module';
+import { NewChannelModule } from './containers/new-channel/new-channel.module';
 // import { ChannelDetailsModule } from './containers/channel-details/channel-details.module';
 
 import { channelRoutes } from './containers/channel/channel.routes';
-import { teamRoutes } from './containers/team/team.routes';
+import { newChannelRoutes } from './containers/new-channel/new-channel.routes';
 // import { channelDetailsRoutes } from './containers/channel-details/channel-details.routes';
 
 
@@ -24,7 +24,7 @@ import { UsersModule } from './components/users/users.module';
 import { MessagesModule } from './components/messages/messages.module';
 import { MessageSendModule } from './components/message-send/message-send.module';
 import { ChannelsModule } from './components/channels/channels.module';
-import { NewChannelModule } from './components/new-channel/new-channel.module';
+
 
 //import { Router } from '@angular/router/src/router';
 
@@ -35,7 +35,7 @@ const appRoutes: Routes = [
 		pathMatch: 'full'
 	},
 	...channelRoutes,
-	...teamRoutes
+	...newChannelRoutes
 ];
 
 @NgModule({
@@ -49,7 +49,6 @@ const appRoutes: Routes = [
 		MessagesModule,
 		MessageSendModule,
 		ChannelModule,
-		TeamModule,
 		RouterModule.forRoot(appRoutes),
 	],
 	declarations: [

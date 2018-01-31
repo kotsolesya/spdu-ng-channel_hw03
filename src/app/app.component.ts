@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
+import { Router } from '@angular/router';
 
 import { UsersService } from './rest/users.service';
 import { UserDto } from './rest/user.dto';
 import { ChannelDto } from './rest/channel.dto';
 import { ChannelsService } from './rest/channels.service';
+
 
 @Component({
 	selector: 'app-root',
@@ -17,7 +19,8 @@ export class AppComponent implements OnInit {
 	channel: ChannelDto;
 	channelService: ChannelsService;
 
-	constructor(private usersService: UsersService) { }
+	constructor(private usersService: UsersService,
+				private router: Router) { }
 
 	runStream() {
 		this.stream().subscribe(b => console.log(b));
@@ -35,6 +38,7 @@ export class AppComponent implements OnInit {
 		localStorage.removeItem('user');
 		this.usersService.destroy();
 		this.updateAuthorized();
+		//this.router.navigate(['/', ]);
 	}
 
 	ngOnInit() {

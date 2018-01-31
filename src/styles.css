@@ -146,6 +146,59 @@ html,
 	font-weight: bold;
 }
 
+.channels-link {
+	text-decoration: none;
+	font-weight: bold;
+	color: #fff;
+}
+.new-channel {
+	text-align: center;
+}
+
+.new-channel-field {
+	margin: 25px 0;
+	padding: 15px;
+	outline: none;
+	border: 1px solid #96468e;
+	width: 40%;
+	font-size: 22px;
+	color: #626365;
+	border-radius: 4px;
+}
+.new-channel-btn-wrap {
+	display: flex;
+	justify-content: space-between;
+	width: 400px;
+    margin: 0 auto;
+}
+.new-channel-btn {
+	border-radius: 50%;
+	border: 3px solid #96468e;
+	font-size: 29px;
+	padding: 10px;
+	color: #626365;
+	width: 100px;
+	height: 100px;
+	outline: none;
+}
+
+.new-channel-btn:hover,
+.new-channel-btn:focus {
+	background-color: #96468e24;
+}
+.new-channel-cancel {
+	display: block;
+	border-radius: 50%;
+	border: 3px solid #96468e;
+	font-size: 29px;
+	padding-top: 28px;
+	color: #626365;
+	width: 100px;
+	height: 100px;
+	text-decoration: none;
+}
+
+
 /*
 	=== Messages List ===
 */

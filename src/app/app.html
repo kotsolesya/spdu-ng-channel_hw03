@@ -11,26 +11,6 @@
 </div>
 
 <div *ngIf="authorized" class="full-height">
+	<router-outlet></router-outlet>
 
-	<div class="sidebar">
-			<router-outlet></router-outlet>
-			<!-- <app-channels></app-channels> -->
-		<app-users [currentUser]="user"></app-users>
-	</div>
-
-	<div class="content">
-		<div class="content-user-info">
-			<div>{{user.name}}</div>
-			<button type="button" (click)="signOut()" class="sign_out-user-btn">
-				Sign out
-			</button>
-		</div>
-		<div class="content-messages">
-			<app-messages></app-messages>
-		</div>
-
-		<div class="content-message-send">
-			<app-message-send [userId]="user.id"></app-message-send>
-		</div>
-	</div>
 </div>

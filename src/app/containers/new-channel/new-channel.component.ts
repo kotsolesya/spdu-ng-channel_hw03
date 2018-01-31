@@ -1,4 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
+import { Router } from '@angular/router';
 
 import { ChannelsService } from '../../rest/channels.service';
 import { ChannelDto } from '../../rest/channel.dto';
@@ -13,7 +15,8 @@ export class NewChannelComponent {
     @Input() channelName: string;
 
 
-    constructor(private channelsService: ChannelsService) { }
+    constructor( private channelsService: ChannelsService, 
+                 private router: Router ) { }
 
     submit() {
         if (this.channelName.length < 2) {
@@ -25,6 +28,7 @@ export class NewChannelComponent {
         this.channelsService.add(channel).subscribe(() => {
             this.sent.emit(channel);
         });
+        this.router.navigate(['/channel/', ]);
     }
 
 }

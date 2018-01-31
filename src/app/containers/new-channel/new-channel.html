@@ -1,0 +1,13 @@
+<div class="new-channel">
+
+    <h1>New Channel</h1>
+    <input type="text" class="new-channel-field" name="channelName" placeholder="Enter a channel name" [(ngModel)]="channelName">
+    <br>
+    <div class="new-channel-btn-wrap">
+        <a [routerLink]="['/']" class="new-channel-cancel">
+            Cancel</a>
+        <button type="button" (click)="submit()" class="new-channel-btn">
+            Add
+        </button>
+    </div>
+</div>
