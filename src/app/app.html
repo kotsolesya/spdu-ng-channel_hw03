@@ -4,7 +4,6 @@
 	(click)="runStream()">
 		Run
 	</button>
-	<router-outlet></router-outlet>
 	<div class="add-user">
 		<app-login (sent)="setUser($event)">
 		</app-login>
@@ -14,6 +13,8 @@
 <div *ngIf="authorized" class="full-height">
 
 	<div class="sidebar">
+			<router-outlet></router-outlet>
+			<!-- <app-channels></app-channels> -->
 		<app-users [currentUser]="user"></app-users>
 	</div>
 

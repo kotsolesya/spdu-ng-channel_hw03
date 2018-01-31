@@ -3,6 +3,8 @@ import { Subject } from 'rxjs/Subject';
 
 import { UsersService } from './rest/users.service';
 import { UserDto } from './rest/user.dto';
+import { ChannelDto } from './rest/channel.dto';
+import { ChannelsService } from './rest/channels.service';
 
 @Component({
 	selector: 'app-root',
@@ -12,6 +14,8 @@ import { UserDto } from './rest/user.dto';
 export class AppComponent implements OnInit {
 	authorized = false;
 	user: UserDto;
+	channel: ChannelDto;
+	channelService: ChannelsService;
 
 	constructor(private usersService: UsersService) { }
 
@@ -42,6 +46,11 @@ export class AppComponent implements OnInit {
 		this.user = user;
 		this.setUserFromStorage(user);
 		this.updateAuthorized();
+	}
+
+	setChannel(channel: ChannelDto) {
+		this.channel = channel;
+		this.channelService.add(channel);
 	}
 
 	private updateAuthorized() {

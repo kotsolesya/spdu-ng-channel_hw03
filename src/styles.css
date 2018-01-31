@@ -127,6 +127,24 @@ html,
 	padding: 3px;
 }
 
+/*
+	=== Channels List ===
+*/
+.channels {
+	margin: 0;
+	padding: 15px;
+	font-size: 15px;
+	list-style: none;
+	color: #fff;
+}
+
+.channels li {
+	padding: 3px;
+}
+
+.channels .active {
+	font-weight: bold;
+}
 
 /*
 	=== Messages List ===

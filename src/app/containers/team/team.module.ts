@@ -4,11 +4,13 @@ import { RouterModule } from '@angular/router';
 
 
 import { TeamComponent } from './team.component';
+import { NewChannelModule } from '../../components/new-channel/new-channel.module';
 
 @NgModule({
 	imports: [
 		BrowserModule,
-		RouterModule
+		RouterModule,
+		NewChannelModule
 	],
 	declarations: [
 		TeamComponent

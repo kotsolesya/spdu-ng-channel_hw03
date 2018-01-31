@@ -1,5 +1,9 @@
-team
-<h1>team</h1>
+<h1>New Channel</h1>
 
 <a [routerLink]="['/']">
     go to</a>
+
+    <div>
+            <app-new-channel (sent)="setChannel($event)">
+            </app-new-channel>
+    </div>
