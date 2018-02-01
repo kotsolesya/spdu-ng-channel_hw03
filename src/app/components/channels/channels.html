@@ -1,6 +1,9 @@
 <ul class="channels">
-    <li *ngFor="let channel of channels" >
-       # {{channel.name}}
+    <li *ngFor="let channel of channels" class="channels-list-item">
+            <a [routerLink]="['/channel/' + channel.id]" class="channels-link">
+                # {{channel.name}}</a>
+           
+       <!-- # {{channel.name}} {{channel.id}} -->
        <!-- <span *ngIf="currentChannel.id === channel.id"> (current)</span> -->
     </li>
 </ul>

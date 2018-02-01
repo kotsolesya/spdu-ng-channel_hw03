@@ -3,11 +3,13 @@ import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 import { ChannelsComponent } from './channels.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
 	imports: [
 		BrowserModule,
-		FormsModule // тепер можем форми використовувать
+		FormsModule,
+		RouterModule
 	],
 	declarations: [
 		ChannelsComponent

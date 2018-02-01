@@ -4,11 +4,15 @@ import { RouterModule } from '@angular/router';
 
 
 import { ChannelDetailsComponent } from './channel-details.component';
+import { MessagesModule } from '../../../components/messages/messages.module';
+import { MessageSendModule } from '../../../components/message-send/message-send.module';
 
 @NgModule({
 	imports: [
 		BrowserModule,
-		RouterModule
+		RouterModule,
+		MessagesModule,
+		MessageSendModule
 	],
 	declarations: [
 		ChannelDetailsComponent

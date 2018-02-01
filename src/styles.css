@@ -138,19 +138,24 @@ html,
 	color: #fff;
 }
 
-.channels li {
+.channels-list-item {
 	padding: 3px;
 }
 
 .channels .active {
 	font-weight: bold;
+	background-color: #4C9689;
 }
 
 .channels-link {
 	text-decoration: none;
-	font-weight: bold;
 	color: #fff;
 }
+
+.channels-list-item:hover {
+	background-color: #111;
+}
+
 .new-channel {
 	text-align: center;
 }

@@ -11,7 +11,7 @@ export class ChannelDetailsSevice {
 
     constructor(private messagesService: MessagesService) {	}
 
-    get() {
+/*    get() {
         const subj = new Subject();
         this.messagesService.get()
             .subscribe(list => {
@@ -23,5 +23,14 @@ export class ChannelDetailsSevice {
                 this.cache = list;
             });
         return subj;
+    }*/
+    get() {
+        this.messagesService.get()
+            .subscribe(allMessages => {
+                allMessages.filter(message => {
+                    return message.channelId === undefined;
+                });
+                this.cache = allMessages;
+            });
     }
 }

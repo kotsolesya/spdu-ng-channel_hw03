@@ -2,7 +2,9 @@ import { Subject } from 'rxjs/Subject';
 
 import { Rest } from './rest';
 import { MessageDto } from './message.dto';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class MessagesService {
 	private messages = new Subject<MessageDto[]>();
 	private running = false;
