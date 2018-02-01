@@ -1,12 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Subject } from 'rxjs/Subject';
+import { Subscription } from 'rxjs/Subscription';
 
 import { ChannelDetailsSevice } from './channel-details.service';
+import { UserDto } from '../../../rest/user.dto';
+import { MessageDto } from '../../../rest/message.dto';
+import { UsersService } from '../../../rest/users.service';
+import { MessagesService } from '../../../rest/messages.service';
+import { ChannelDto } from '../../../rest/channel.dto';
+import { ChannelsService } from '../../../rest/channels.service';
 
-type ChannelParams = {
-	channelId: number
+interface ChannelParams {
+	channelId: number;
 }
 
 @Component({
@@ -17,29 +24,45 @@ type ChannelParams = {
 	]
 })
 
+export class ChannelDetailsComponent  implements OnInit {
 
-export class ChannelDetailsComponent  {
 	id: number;
-	//router this.router = router вместо етого v constructor private router: Router
-	constructor(
-		private channelDetailsSevice: ChannelDetailsSevice,
-		private router: Router, 
-		route: ActivatedRoute
-	) {
-		route.params.subscribe((params: ChannelParams) => {
-			//this.id = +params['channelId'];
-			console.log('params',params);
-			this.id = +params.channelId;
-		});
+	name: string;
+    channelMessages: MessageDto[] = [];
+	user: UserDto;
+	channels: ChannelDto[] = [];
 
-		this.channelDetailsSevice.get()
-			.subscribe(list => {
-				console.log('list',list);
-			});
-		
-	}
+    private sub: Subscription;
+    private usersSub: Subscription;
 
-	goTo() {
-		this.router.navigate(['/']);
-	}
+	constructor ( private usersService: UsersService,
+                  private messagesService: MessagesService,
+                  private channelsService: ChannelsService,
+                  private router: Router, route: ActivatedRoute) {
+                    route.params.subscribe((params: ChannelParams) => {
+        			this.id = +params.channelId;
+		        	this.name = this.getChannelName(this.id);
+        });
+    }
+
+    ngOnInit() {
+	    this.user = this.getUserFromStorage();
+    }
+
+	getChannelName(channelId: number) {
+		this.sub = this.channelsService.get().subscribe(channels => this.channels = channels);
+        const channel = this.channels.find(item => item.id === channelId);
+        if (!channel) {
+            return;
+        }
+        return channel.name;
+    }
+
+    private getUserFromStorage(): UserDto {
+        const data = window.localStorage.getItem('user');
+        if (!data) {
+            return;
+        }
+        return new UserDto(JSON.parse(data));
+    }
 }

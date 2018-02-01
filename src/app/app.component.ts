@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
 
 	stream() {
 		const subj = new Subject();
-		setInterval(()=> {
+		setInterval( () => {
 			subj.next(Date.now()); // кидаем по потоку каждую сек дату
 		}, 1000);
 		return subj;
@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
 		localStorage.removeItem('user');
 		this.usersService.destroy();
 		this.updateAuthorized();
-		//this.router.navigate(['/', ]);
+		// this.router.navigate(['/', ]);
 	}
 
 	ngOnInit() {

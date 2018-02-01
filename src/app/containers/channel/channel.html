@@ -3,8 +3,8 @@
         <h1>channels <a [routerLink]="['/new-channel']" class="channels-link">+</a> </h1>
     </div>
 
-    <app-channels [currentChannel]="currentChannel"></app-channels>
-<app-users [currentUser]="user"></app-users>
+    <app-channels [currentChannel]="channelId"></app-channels>
+    <app-users [currentUser]="user"></app-users>
 </div>
 
 <div class="content">
@@ -14,12 +14,8 @@
         Sign out
     </button>
 </div>
-<router-outlet></router-outlet>
-
-
+    <router-outlet></router-outlet>
 </div>
-
-<!-- <router-outlet></router-outlet> -->
 
 
 

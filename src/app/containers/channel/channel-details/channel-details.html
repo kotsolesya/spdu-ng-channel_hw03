@@ -1,20 +1,8 @@
-
-
 <div class="content-messages">
     <h1>{{name}}</h1>
     <app-messages></app-messages>
 </div>
 
 <div class="content-message-send">
-    <app-message-send [userId]="user.id"></app-message-send>
+    <app-message-send [userId]="user.id" [channelId]="id"></app-message-send>
 </div> 
-
-<!-- <app-messages></app-messages> -->
-
-<!-- <ul class="messages" #appScrollTo>
-    <li *ngFor="let message of channelMessages">
-        <span class="message-user">{{getUserName(message.userId)}}</span>
-        <span class="message-date">{{message.date | date: 'M/d/yy, h:mm a'}}</span>
-        <div class="message-text">{{message.text}}</div>
-    </li>
-</ul> -->

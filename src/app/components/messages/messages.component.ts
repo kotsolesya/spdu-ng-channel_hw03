@@ -17,28 +17,25 @@ export class MessagesComponent implements OnInit, OnDestroy {
     private messagesSub: Subscription;
     private usersSub: Subscription;
 
-    id:number;
+    id: number;
     users: UserDto[] = [];
     messages: MessageDto[] = [];
 
-    constructor(
+    constructor (
         private usersService: UsersService,
         private messagesService: MessagesService,
-        private router: Router, route: ActivatedRoute
-    ) {
+        private router: Router, route: ActivatedRoute ) {
 
         route.params.subscribe((params) => {
 			this.id = +params.channelId;
-			console.log('params messages = ',params);
         });
-
     }
 
     ngOnInit() {
         this.messagesService.init();
         this.messagesSub = this.messagesService.get()
                 .subscribe(messages => this.messages = messages.filter(message => {
-                    if(this.id === undefined || isNaN(this.id)) {
+                    if (this.id === undefined || isNaN(this.id) ) {
                         return message;
                     } else {
                         return message.channelId === this.id;

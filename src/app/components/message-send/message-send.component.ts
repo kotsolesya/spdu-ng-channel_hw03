@@ -12,19 +12,12 @@ import { ChannelsService } from '../../rest/channels.service';
 export class MessageSendComponent {
     @Output() sent = new EventEmitter<never>();
     @Input() userId: number;
-    channelId: number;
+    @Input() channelId: number;
 
     textMessage: string;
 
-    constructor(private messagesService: MessagesService, 
+    constructor(private messagesService: MessagesService,
         private channelsService: ChannelsService) {
-            // this.channelsService.get().subscribe((list) => {
-            //     //console.log(list );
-                
-            // });
-    
-        //this.channelId = route.snapshot.params['id'];
-        
      }
 
     send() {
@@ -36,7 +29,6 @@ export class MessageSendComponent {
         message.text = this.textMessage;
         message.userId = this.userId;
         message.channelId = this.channelId;
-        console.log('mes = ', message);
         this.textMessage = '';
         this.messagesService.add(message).subscribe(() => {
             this.sent.emit();

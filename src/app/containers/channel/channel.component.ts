@@ -1,4 +1,3 @@
-//import { Router } from '@angular/router';
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 
 import { Subscription } from 'rxjs/Subscription';
@@ -17,18 +16,25 @@ import { Router, ActivatedRoute } from '@angular/router';
 	templateUrl: './channel.html'
 })
 
-export class ChannelComponent  {
+export class ChannelComponent implements OnInit  {
     user: UserDto;
     channelId: number;
 
-    constructor(private usersService: UsersService, 
+    constructor(private usersService: UsersService,
         private  router: Router) {
     }
 
     ngOnInit() {
         this.user = this.getUserFromStorage();
-        //this.channelId = +this.router.url.split('/')[2];
+        this.channelId = +this.router.url.split('/')[2];
     }
+
+    signOut() {
+		localStorage.removeItem('user');
+		this.usersService.destroy();
+		// this.router.navigate(['/', ]);
+	}
+
 
     private getUserFromStorage(): UserDto {
         const data = window.localStorage.getItem('user');

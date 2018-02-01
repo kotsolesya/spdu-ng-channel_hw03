@@ -142,7 +142,7 @@ html,
 	padding: 3px;
 }
 
-.channels .active {
+.channels-active {
 	font-weight: bold;
 	background-color: #4C9689;
 }

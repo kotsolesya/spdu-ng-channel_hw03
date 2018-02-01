@@ -15,7 +15,7 @@ export class NewChannelComponent {
     @Input() channelName: string;
 
 
-    constructor( private channelsService: ChannelsService, 
+    constructor(private channelsService: ChannelsService,
                  private router: Router ) { }
 
     submit() {

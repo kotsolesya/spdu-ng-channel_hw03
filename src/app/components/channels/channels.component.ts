@@ -7,8 +7,8 @@ import { ChannelDto } from './../../rest/channel.dto';
 import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
 import { Router, ActivatedRoute } from '@angular/router';
 
-type ChannelParams = {
-	channelId: number
+interface ChannelParams {
+	channelId: number;
 }
 
 @Component({
@@ -18,7 +18,7 @@ type ChannelParams = {
 
 export class ChannelsComponent implements OnInit, OnDestroy {
     @Input() currentChannel: ChannelDto;
-    
+
     id: number;
     name: string;
     private sub: Subscription;
@@ -38,5 +38,5 @@ export class ChannelsComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
         this.sub.unsubscribe();
-    }    
+    }
 }
