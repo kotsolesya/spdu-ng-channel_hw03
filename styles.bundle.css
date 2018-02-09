@@ -1,0 +1,264 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #efefef;
+	font-family: Helvetica, Arial, Lucida Grande, sans-serif;
+	color: #626365;
+	font-size: 13px;
+}
+
+body,
+html,
+.full-height {
+	height: 100%;
+	min-height: 100%;
+}
+
+* {
+	box-sizing: border-box;
+	transition: background-color .3s
+}
+
+.no-user {
+	background-color: #fff;
+	margin: 100px auto;
+	padding: 50px;
+	max-width: 450px;
+	border-radius: 4px;
+	box-shadow: 0px 2px 0px #dedede;
+}
+
+.sidebar {
+	background-color: #4d394b;
+	width: 200px;
+	float: left;
+	height: 100%;
+	overflow: auto;
+}
+
+.content {
+	background-color: #fff;
+	width: calc(100% - 200px);
+	float: left;
+	height: 100%;
+	overflow: hidden;
+}
+
+.content-user-info {
+	padding: 20px 30px;
+	border-bottom: 1px solid #efefef;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+	font-weight: bold;
+	font-size: 17px;
+	min-height: 61px;
+}
+
+.content-message-send {
+	height: 100px;
+}
+
+.content-messages {
+	height: calc(100% - 161px);
+	overflow: auto;
+}
+
+.sign_out-user-btn {
+	border-radius: 5%;
+    border: 2px solid #96468e;
+	color: #626365;
+	font-size: 1rem;
+    width: 100px;
+    height: 35px;
+    outline: none;
+}
+/*
+	=== Add User ===
+*/
+.add-user {
+	text-align: center;
+}
+
+.add-user-label {
+	font-size: 22px;
+}
+
+.add-user-field {
+	margin: 25px 0;
+	padding: 15px;
+	outline: none;
+	border: 1px solid #96468e;
+	width: 100%;
+	font-size: 22px;
+	color: #626365;
+	border-radius: 4px;
+}
+
+.add-user-btn {
+	border-radius: 50%;
+	border: 3px solid #96468e;
+	font-size: 29px;
+	padding: 10px;
+	color: #626365;
+	width: 100px;
+	height: 100px;
+	outline: none;
+}
+
+.add-user-btn:hover,
+.add-user-btn:focus {
+	background-color: #96468e24;
+}
+
+/*
+	=== Users List ===
+*/
+.users {
+	margin: 0;
+	padding: 15px;
+	font-size: 14px;
+	list-style: none;
+	color: #fff;
+}
+
+.users li {
+	padding: 3px;
+}
+
+/*
+	=== Channels List ===
+*/
+.channels {
+	margin: 0;
+	padding: 15px;
+	font-size: 15px;
+	list-style: none;
+	color: #fff;
+}
+
+.channels-list-item {
+	padding: 3px;
+}
+
+.channels-active {
+	font-weight: bold;
+	background-color: #4C9689;
+}
+
+.channels-link {
+	text-decoration: none;
+	color: #fff;
+}
+
+.channels-list-item:hover {
+	background-color: #111;
+}
+
+.new-channel {
+	text-align: center;
+}
+
+.new-channel-field {
+	margin: 25px 0;
+	padding: 15px;
+	outline: none;
+	border: 1px solid #96468e;
+	width: 40%;
+	font-size: 22px;
+	color: #626365;
+	border-radius: 4px;
+}
+.new-channel-btn-wrap {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	width: 400px;
+    margin: 0 auto;
+}
+.new-channel-btn {
+	border-radius: 50%;
+	border: 3px solid #96468e;
+	font-size: 29px;
+	padding: 10px;
+	color: #626365;
+	width: 100px;
+	height: 100px;
+	outline: none;
+}
+
+.new-channel-btn:hover,
+.new-channel-btn:focus {
+	background-color: #96468e24;
+}
+.new-channel-cancel {
+	display: block;
+	border-radius: 50%;
+	border: 3px solid #96468e;
+	font-size: 29px;
+	padding-top: 28px;
+	color: #626365;
+	width: 100px;
+	height: 100px;
+	text-decoration: none;
+}
+
+
+/*
+	=== Messages List ===
+*/
+.messages {
+	color: #626365;
+	padding: 0;
+	list-style: none;
+	margin: 0;
+}
+
+.messages li {
+	padding: 10px 20px;
+}
+
+.messages li:hover {
+	background-color: rgba(0, 0, 0, 0.03);
+}
+
+.message-user {
+	color: #000;
+	font-weight: bold;
+}
+
+.message-date {
+	font-size: 12px;
+}
+
+.message-text {
+	padding-top: 5px;
+	color: #000;
+}
+
+.message-send {
+	padding: 20px;
+}
+
+/*
+	=== Send Message ===
+*/
+.message-send-field {
+	border-radius: 7px;
+	outline: none;
+	padding: 14px 16px;
+	font-size: 16px;
+	width: 100%;
+	color: #626365;
+	border: 2px solid #767779;
+}
+
+/*# sourceMappingURL=styles.bundle.css.map*/
